@@ -1,0 +1,9 @@
+[submodule "modules/bonafide"]
+	path = modules/bonafide
+	url = https://github.com/shadowhand/bonafide.git
+[submodule "modules/minion"]
+	path = modules/minion
+	url = https://github.com/kohana/minion.git
+[submodule "modules/tasks-migrations"]
+	path = modules/tasks-migrations
+	url = https://github.com/kohana-minion/tasks-migrations.git
