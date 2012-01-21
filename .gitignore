@@ -1,1 +1,3 @@
 .htaccess
+application/cache/*
+application/logs/*
