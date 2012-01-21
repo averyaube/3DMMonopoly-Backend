@@ -89,6 +89,20 @@ class Model_Users extends Model_Database {
 	}
 	
 	/**
+	 * Find a single user based on their ID.
+	 *
+	 * @return array User info
+	 */
+	public function find_by_id($user_id)
+	{
+		return DB::select('*')
+			->from($this->_table_name)
+			->where('id', '=', $user_id)
+			->execute()
+			->current();
+	}
+	
+	/**
 	 * Check whether or not an email is unique
 	 *
 	 * @param string $email Email address to check

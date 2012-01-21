@@ -13,6 +13,8 @@ class View_Base extends Kostache_Layout {
 	 */
 	public $site_name = '3DMMonopoly';
 	
+	protected $_user_info;
+	
 	// Cool let's set some default partials
 	protected $_partials = array(
 		'errors' => 'partials/errors',
@@ -26,6 +28,21 @@ class View_Base extends Kostache_Layout {
 	public function logged_in()
 	{
 		return Auth::logged_in();
+	}
+	
+	/**
+	 * Return hash of user info if logged in
+	 *
+	 * @return array User Info
+	 */
+	public function user_info()
+	{
+		if ($this->_user_info === NULL)
+		{
+			$this->_user_info = Auth::user_info();
+		}
+		
+		return $this->_user_info;
 	}
 	
 	/**

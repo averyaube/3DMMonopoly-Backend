@@ -31,6 +31,23 @@ class Auth {
 	}
 	
 	/**
+	 * Receive information about the currently logged in user.
+	 *
+	 * @return array User info if logged in
+	 * @return bool FALSE if logged out
+	 */
+	public static function user_info()
+	{
+		if ( ! self::logged_in())
+			return FALSE;
+		
+		$user_id = self::$session->get('user_id');
+		
+		$model = new Model_Users;
+		return $model->find_by_id($user_id);
+	}
+	
+	/**
 	 * Checks whether or not you are logged in.
 	 *
 	 * @return bool Whether or not you are logged in
