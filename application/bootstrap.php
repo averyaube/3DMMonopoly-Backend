@@ -97,11 +97,12 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	'bonafide'         => MODPATH.'bonafide',        // Password Hashing
+	'bonafide'         => MODPATH.'bonafide',        // Password hashing
 	'database'         => MODPATH.'database',        // Database access
 	'image'            => MODPATH.'image',           // Image manipulation
-	'minion'           => MODPATH.'minion',          // CLI Interface
-	'tasks-migrations' => MODPATH.'tasks-migrations' // Minion Migration Tasks
+	'kostache'         => MODPATH.'kostache',        // Mustache templates
+	'minion'           => MODPATH.'minion',          // CLI interface
+	'tasks-migrations' => MODPATH.'tasks-migrations' // Minion migration tasks
 	));
 
 /**

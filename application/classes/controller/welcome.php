@@ -1,10 +1,20 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-
-class Controller_Welcome extends Controller {
-
+/**
+ * The welcome controller, just home page and crap
+ *
+ * @package    3DMMonopoly
+ * @category   Controllers
+ * @author     Lowgain
+ */
+class Controller_Welcome extends Controller_Base {
+	
+	protected $_view_names = array(
+		'index' => 'home',
+	);
+	
 	public function action_index()
 	{
-		$this->response->body('hello, world!');
+		
 	}
 
 } // End Welcome
