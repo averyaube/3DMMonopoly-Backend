@@ -2,8 +2,9 @@
 return array(
 	'default' => array(
 		'mechanisms' => array(
-			'bcrypt' => array('bcrypt', array(
-				'cost' => 6,
+			'crypt' => array('crypt', array(
+				'type' => 'blowfish',
+				'iterations' => 10,
 			)),
 		),
 	),
