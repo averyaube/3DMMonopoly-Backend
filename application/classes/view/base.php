@@ -13,4 +13,9 @@ class View_Base extends Kostache_Layout {
 	 */
 	public $site_name = '3DMMonopoly';
 	
+	// Cool let's set some default partials
+	protected $_partials = array(
+		'errors' => 'partials/errors',
+	);
+	
 }

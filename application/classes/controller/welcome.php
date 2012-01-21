@@ -9,12 +9,12 @@
 class Controller_Welcome extends Controller_Base {
 	
 	protected $_view_names = array(
-		'index' => 'home',
+		'index'    => 'home',
 	);
 	
 	public function action_index()
 	{
-		
+		// Since nothing dynamic is happening right now, this is left as is
 	}
 
 } // End Welcome
