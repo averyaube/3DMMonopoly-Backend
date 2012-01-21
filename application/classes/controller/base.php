@@ -31,7 +31,7 @@ abstract class Controller_Base extends Controller {
 	public function before()
 	{
 		// Initialize viewmodel, if exists
-		if (($view_name = Arr::get($this->_view_names, $this->request->action())) !== NULL)
+		if (($view_name = Arr::get($this->_view_names, $this->request->action(), FALSE)) !== FALSE)
 		{
 			$view_class = "View_{$view_name}";
 			$this->_view = new $view_class;

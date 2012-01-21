@@ -18,4 +18,24 @@ class View_Base extends Kostache_Layout {
 		'errors' => 'partials/errors',
 	);
 	
+	/**
+	 * Check whether or not user is logged in
+	 *
+	 * @return bool Whether or not you are logged in
+	 */
+	public function logged_in()
+	{
+		return Auth::logged_in();
+	}
+	
+	/**
+	 * Return the base url of the site.
+	 *
+	 * @return string The site url
+	 */
+	public function site_url()
+	{
+		return URL::site();
+	}
+	
 }

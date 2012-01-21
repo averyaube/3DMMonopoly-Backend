@@ -13,7 +13,7 @@ class Migration_Default_20120120223738 extends Minion_Migration_Base {
 		$db->query(NULL, 'CREATE TABLE `users` 
 			(`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 			`username` VARCHAR(32) NOT NULL,
-			`password` CHAR(60) NOT NULL,
+			`password` CHAR(65) NOT NULL,
 			`email` VARCHAR(128) NOT NULL,
 			`name` VARCHAR(128) NOT NULL,
 			UNIQUE (`username`, `email`))

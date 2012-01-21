@@ -46,6 +46,49 @@ class Model_Users extends Model_Database {
 	}
 	
 	/**
+	 * Register as a new user!
+	 * 
+	 * @param array $login_info Login credentials
+	 * @return array List of user info
+	 * @throws Validation_Exception
+	 */
+	public function login($login_info)
+	{
+		// Make sure fields are there
+		$validation = Validation::factory($login_info)
+			->rule('username', 'not_empty')
+			->rule('password', 'not_empty');
+		
+		// Throw exception if not
+		if ( ! $validation->check())
+			throw new Validation_Exception($validation);
+		
+		// Select user based on username
+		$res = DB::select('*')
+			->from($this->_table_name)
+			->where('username', '=', $login_info['username'])
+			->execute();
+		
+		// If there's no user, add the error and throw exception
+		if ($res->count() === 0)
+		{
+			$validation->error('username', 'exists');
+			throw new Validation_Exception($validation);
+		}
+		
+		// But if not, get the user and check the password
+		$user = $res->current();
+		
+		if ( ! Bonafide::instance()->check($login_info['password'], $user['password']))
+		{
+			$validation->error('password', 'correct');
+			throw new Validation_Exception($validation);
+		}
+		
+		return $user;
+	}
+	
+	/**
 	 * Check whether or not an email is unique
 	 *
 	 * @param string $email Email address to check

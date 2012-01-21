@@ -5,6 +5,16 @@
 	</head>
 	<body>
 		<h1>Holy Shit {{site_name}}!</h1>
+		<nav>
+			{{#logged_in}}
+				<strong>You are logged in!</strong>
+				<a href="{{site_url}}/account/logout">Logout!</a>
+			{{/logged_in}}
+			{{^logged_in}}
+				<a href="{{site_url}}/account/login">Login!</a>
+				<a href="{{site_url}}/account/register">Register!</a>
+			{{/logged_in}}
+		</nav>
 		{{>content}}
 	</body>
 </html>
